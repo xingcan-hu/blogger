@@ -81,14 +81,10 @@ def test_publish_uses_slug_then_restores_title(tmp_path, monkeypatch):
         def __init__(self, client_secret, token):
             pass
 
-        def create_draft(self, title, content, labels):
-            calls.append(("create_draft", title))
-            return {"id": "123", "title": title, "status": "DRAFT", "url": ""}
-
-        def publish(self, post_id):
-            calls.append(("publish", post_id))
+        def create_live(self, title, content, labels):
+            calls.append(("create_live", title))
             return {
-                "id": post_id,
+                "id": "123",
                 "title": "pdftranslator-org-review",
                 "status": "LIVE",
                 "url": "https://example.blogspot.com/2026/08/pdftranslator-org-review.html",
@@ -114,8 +110,7 @@ def test_publish_uses_slug_then_restores_title(tmp_path, monkeypatch):
 
     assert main(["--token", str(token), "publish", str(source)]) == 0
     assert calls == [
-        ("create_draft", "pdftranslator-org-review"),
-        ("publish", "123"),
+        ("create_live", "pdftranslator-org-review"),
         ("patch", "PDFTranslator.org 体验"),
     ]
     published = tmp_path / "published" / source.name

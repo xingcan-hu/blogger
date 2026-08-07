@@ -53,6 +53,13 @@ class BloggerClient:
             body={"title": title, "content": content, "labels": labels},
         ).execute()
 
+    def create_live(self, title: str, content: str, labels: list[str]) -> dict:
+        return self.service.posts().insert(
+            blogId=self.blog["id"],
+            isDraft=False,
+            body={"title": title, "content": content, "labels": labels},
+        ).execute()
+
     def patch(self, post_id: str, title: str, content: str, labels: list[str]) -> dict:
         return self.service.posts().patch(
             blogId=self.blog["id"],

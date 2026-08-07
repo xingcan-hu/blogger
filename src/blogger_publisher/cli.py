@@ -76,36 +76,44 @@ def main(argv: list[str] | None = None) -> int:
             }, ensure_ascii=False, indent=2))
             return 0 if all(check.passed for check in checks) else 2
         labels = list(article.metadata["labels"])
-        if post_id:
+        if args.command == "publish":
+            slug = str(article.metadata["slug"])
+            if post_id:
+                post = client.get(str(post_id))
+                if post.get("status") != "LIVE":
+                    client.patch(str(post_id), slug, html, labels)
+                    post = client.publish(str(post_id))
+                    save_metadata(article, blogger_post_id=str(post_id), blogger_url=post.get("url"))
+                    if not _permalink_matches_slug(str(post.get("url", "")), slug):
+                        raise BloggerError(
+                            f"Recovered post {post_id}, but its permalink does not match the requested slug: "
+                            f"{post.get('url', '')}"
+                        )
+                post = client.patch(str(post_id), article.title, html, labels)
+            else:
+                post = client.create_live(slug, html, labels)
+                post_id = str(post["id"])
+                save_metadata(article, blogger_post_id=post_id, blogger_url=post.get("url"))
+                if not _permalink_matches_slug(str(post.get("url", "")), slug):
+                    raise BloggerError(
+                        f"Post {post_id} is live, but its permalink does not match the requested slug; "
+                        f"repair this post instead of creating another: {post.get('url', '')}"
+                    )
+                post = client.patch(post_id, article.title, html, labels)
+        elif post_id:
             post = client.patch(str(post_id), article.title, html, labels)
         elif args.command == "update":
             raise BloggerError("Cannot update a post without blogger_post_id")
-        elif args.command == "publish":
-            slug = str(article.metadata["slug"])
-            post = client.create_draft(slug, html, labels)
-            post_id = str(post["id"])
-            save_metadata(article, blogger_post_id=post_id, blogger_url=post.get("url"))
-            if post.get("status") != "LIVE":
-                post = client.publish(post_id)
-            save_metadata(article, blogger_post_id=post_id, blogger_url=post.get("url"))
-            if not _permalink_matches_slug(str(post.get("url", "")), slug):
-                raise BloggerError(
-                    "Post is live with its temporary slug title, but the permalink does not match "
-                    f"the requested slug; repair post {post_id} instead of creating another: {post.get('url', '')}"
-                )
-            post = client.patch(post_id, article.title, html, labels)
         else:
             post = client.create_draft(article.title, html, labels)
             post_id = str(post["id"])
             save_metadata(article, blogger_post_id=post_id, blogger_url=post.get("url"))
         if args.command == "publish":
-            draft_url = post.get("url", "")
-            if draft_url and not _permalink_matches_slug(draft_url, str(article.metadata["slug"])):
+            live_url = post.get("url", "")
+            if not _permalink_matches_slug(live_url, str(article.metadata["slug"])):
                 raise BloggerError(
-                    f"Draft kept unpublished because its permalink does not match the requested slug: {draft_url}"
+                    f"Published post permalink does not match the requested slug: {live_url}"
                 )
-            if post.get("status") != "LIVE":
-                post = client.publish(str(post_id))
             final_path = mark_published(
                 article,
                 str(post["id"]),
