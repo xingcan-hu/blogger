@@ -1,6 +1,6 @@
 ---
 name: blogger-images
-description: Prepare, optimize, name, publish, or verify images for Markdown articles in this AI 工具指南 Blogger repository. Use when Codex needs to process screenshots or illustrations, convert local images to WebP, generate SEO-safe filenames and alt text, build GitHub Pages image URLs, update image_dimensions front matter, or validate live Blogger images without relying on Blogger's browser uploader.
+description: Prepare, optimize, name, publish, or verify images for Markdown articles in this AI 工具指南 Blogger repository. Use when Codex needs to process screenshots or illustrations, preserve small originals or optimize large files to WebP, generate SEO-safe filenames and alt text, build GitHub Pages image URLs, update image_dimensions front matter, or validate live Blogger images without relying on Blogger's browser uploader.
 ---
 
 # Blogger Images

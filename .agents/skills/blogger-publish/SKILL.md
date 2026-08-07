@@ -1,6 +1,6 @@
 ---
 name: blogger-publish
-description: Publish, republish, or update Markdown articles in this repository through the Blogger API with a CLI-first workflow. Use when Codex is asked to publish a new post, automatically publish completed work, update a live Blogger post, synchronize Blogger metadata back to posts/published, verify a release, or recover an interrupted Blogger publication without creating a duplicate post.
+description: Publish, republish, or update Markdown articles in this repository through the Blogger API with a CLI-first workflow. Use when Codex is asked to publish a new post, automatically publish completed work, update a live Blogger post, synchronize Blogger metadata back to posts/published, verify a release, submit Blogger sitemaps to Google Search Console, or recover an interrupted publication without creating a duplicate post.
 ---
 
 # Blogger Publish
@@ -63,6 +63,21 @@ The official Blogger v3 Post resource has no supported writable `slug`, `permali
 - Report the search-description limitation; do not claim that the exact text was applied.
 
 Use a browser only when the user explicitly requests exact UI-only metadata or approves browser fallback after the limitation is explained.
+
+## Submit native sitemaps
+
+Use the repository CLI when the user asks to configure or submit the blog to Google Search Console:
+
+```bash
+UV_CACHE_DIR=.uv-cache uv run blogger sitemap show
+UV_CACHE_DIR=.uv-cache uv run blogger sitemap setup
+UV_CACHE_DIR=.uv-cache uv run blogger sitemap submit
+UV_CACHE_DIR=.uv-cache uv run blogger sitemap status
+```
+
+`show` is read-only. `setup` adds the blog URL-prefix property, and `submit` changes Search Console state; run either only with user authorization. Blogger provides `sitemap.xml` for posts and `sitemap-pages.xml` for static pages. Do not build or upload a local XML sitemap. The CLI skips empty sitemaps and can remove their stale GSC submissions.
+
+Use `.gsc_token.json` separately from `.blogger_token.json`. On first use, OAuth or property verification may require the user to finish a browser step. Use `--gsc-site` or `GSC_SITE_URL` when automatic verified-property selection is not appropriate. After submission, run `sitemap status` and report Search Console errors or warnings without promising indexing.
 
 ## Failure recovery
 
