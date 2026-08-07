@@ -1,0 +1,4 @@
+interface:
+  display_name: "Product Topic Brainstorm"
+  short_description: "Research a product URL and prioritize content ideas"
+  default_prompt: "Use $product-topic-brainstorm to research this product URL and propose evidence-backed blog topics."

@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blogger Publish"
+  short_description: "Publish Blogger posts with a CLI-first workflow"
+  default_prompt: "Use $blogger-publish to validate and publish this Blogger article with the CLI-first workflow."

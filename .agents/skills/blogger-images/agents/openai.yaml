@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blogger Images"
+  short_description: "Prepare and publish optimized blog images"
+  default_prompt: "Use $blogger-images to optimize and prepare images for this Blogger project."

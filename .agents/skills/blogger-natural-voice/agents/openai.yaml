@@ -1,0 +1,4 @@
+interface:
+  display_name: "博客自然语气"
+  short_description: "让博客表达自然、本地化，减少机械句式与生硬的 AI 腔"
+  default_prompt: "Use $blogger-natural-voice to rewrite this article in a natural, locally appropriate blog voice."

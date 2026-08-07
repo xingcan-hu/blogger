@@ -1,0 +1,4 @@
+interface:
+  display_name: "Blogger SEO"
+  short_description: "Audit and optimize this Blogger publishing project"
+  default_prompt: "Use $blogger-seo to optimize and verify a post before and after publishing."
