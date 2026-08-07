@@ -5,8 +5,8 @@ description: IRS W-4 是什么、什么时候需要填写、五个步骤分别�
   免费翻译官方 PDF、对照阅读英文说明。
 image_dimensions:
   PDFTranslator.org 双语预览 IRS W-4 英文原文与中文译文:
-  - 1920
-  - 793
+  - 2560
+  - 1440
 labels:
 - PDF 工具
 - 翻译工具
@@ -87,7 +87,7 @@ IRS 的 [官方 W‑4 PDF](https://www.irs.gov/pub/irs-pdf/fw4.pdf) 不只有一
 4. 翻译完成后使用双语预览，对照阅读原文与译文；
 5. 回到英文原表和 IRS 官方说明，核查关键术语、数字和填写条件。
 
-![PDFTranslator.org 双语预览 IRS W-4 英文原文与中文译文](https://xingcan-hu.github.io/blogger/images/2026/pdftranslator-org/bilingual-result-clear.webp)
+![PDFTranslator.org 双语预览 IRS W-4 英文原文与中文译文](https://xingcan-hu.github.io/blogger/images/2026/pdftranslator-org/bilingual-result-high-resolution.webp)
 
 本站在 2026 年 8 月 7 日曾用这份 5 页空白 W‑4 做英文到简体中文测试。页面数量、分栏、表格线、复选框和步骤编号基本得到保留，双语并排预览也方便逐项核对；但密集区域的中文字更拥挤，个别税务术语不够自然。完整过程可查看 [PDFTranslator.org 免费 PDF 翻译实测](https://aitooljournalhub.blogspot.com/2026/08/pdftranslator-org-review.html)。
 

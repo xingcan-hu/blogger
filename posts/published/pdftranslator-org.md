@@ -11,9 +11,9 @@ image_dimensions:
   PDFTranslator.org 上传 IRS W-4 并选择英文到简体中文:
   - 1462
   - 726
-  PDFTranslator.org 双语预览中的 W-4 英文原文与简体中文译文:
-  - 1920
-  - 793
+  PDFTranslator.org 高分辨率双语预览中的 W-4 英文原文与简体中文译文:
+  - 2560
+  - 1440
 primary_keyword: 免费翻译 PDF
 published_at: '2026-08-07T01:46:30-07:00'
 slug: pdftranslator-org-review
@@ -65,7 +65,7 @@ PDFTranslator.org 是一个浏览器端 PDF 翻译工具。官网目前公开的
 
 测试日期为 2026 年 8 月 7 日。任务提交后经历排队，约两分钟完成。系统将 5 页计入当月额度，页面显示剩余 995 页。
 
-![PDFTranslator.org 双语预览中的 W-4 英文原文与简体中文译文](https://xingcan-hu.github.io/blogger/images/2026/pdftranslator-org/bilingual-result-clear.webp)
+![PDFTranslator.org 高分辨率双语预览中的 W-4 英文原文与简体中文译文](https://xingcan-hu.github.io/blogger/images/2026/pdftranslator-org/bilingual-result-high-resolution.webp)
 
 ## 格式和翻译结果观察
 
