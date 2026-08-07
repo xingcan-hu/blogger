@@ -80,6 +80,20 @@ def main(argv: list[str] | None = None) -> int:
             post = client.patch(str(post_id), article.title, html, labels)
         elif args.command == "update":
             raise BloggerError("Cannot update a post without blogger_post_id")
+        elif args.command == "publish":
+            slug = str(article.metadata["slug"])
+            post = client.create_draft(slug, html, labels)
+            post_id = str(post["id"])
+            save_metadata(article, blogger_post_id=post_id, blogger_url=post.get("url"))
+            if post.get("status") != "LIVE":
+                post = client.publish(post_id)
+            save_metadata(article, blogger_post_id=post_id, blogger_url=post.get("url"))
+            if not _permalink_matches_slug(str(post.get("url", "")), slug):
+                raise BloggerError(
+                    "Post is live with its temporary slug title, but the permalink does not match "
+                    f"the requested slug; repair post {post_id} instead of creating another: {post.get('url', '')}"
+                )
+            post = client.patch(post_id, article.title, html, labels)
         else:
             post = client.create_draft(article.title, html, labels)
             post_id = str(post["id"])

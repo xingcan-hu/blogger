@@ -2,6 +2,7 @@ from pathlib import Path
 
 from blogger_publisher.cli import _generic_permalink, _live_seo_checks, _permalink_matches_slug, main
 from blogger_publisher.content import load_article
+import blogger_publisher.cli as cli
 
 
 ARTICLE = """---
@@ -69,3 +70,56 @@ def test_live_seo_checks_detect_url_mismatch(tmp_path):
     assert not checks["recorded_url"].passed
     assert not checks["slug_in_live_url"].passed
     assert not checks["canonical"].passed
+
+
+def test_publish_uses_slug_then_restores_title(tmp_path, monkeypatch):
+    calls = []
+
+    class FakeClient:
+        blog = {"name": "Test Blog"}
+
+        def __init__(self, client_secret, token):
+            pass
+
+        def create_draft(self, title, content, labels):
+            calls.append(("create_draft", title))
+            return {"id": "123", "title": title, "status": "DRAFT", "url": ""}
+
+        def publish(self, post_id):
+            calls.append(("publish", post_id))
+            return {
+                "id": post_id,
+                "title": "pdftranslator-org-review",
+                "status": "LIVE",
+                "url": "https://example.blogspot.com/2026/08/pdftranslator-org-review.html",
+                "published": "2026-08-07T00:00:00Z",
+            }
+
+        def patch(self, post_id, title, content, labels):
+            calls.append(("patch", title))
+            return {
+                "id": post_id,
+                "title": title,
+                "status": "LIVE",
+                "url": "https://example.blogspot.com/2026/08/pdftranslator-org-review.html",
+                "published": "2026-08-07T00:00:00Z",
+            }
+
+    monkeypatch.setattr(cli, "BloggerClient", FakeClient)
+    token = tmp_path / "token.json"
+    token.write_text("{}", encoding="utf-8")
+    drafts = tmp_path / "drafts"
+    drafts.mkdir()
+    source = article(drafts)
+
+    assert main(["--token", str(token), "publish", str(source)]) == 0
+    assert calls == [
+        ("create_draft", "pdftranslator-org-review"),
+        ("publish", "123"),
+        ("patch", "PDFTranslator.org 体验"),
+    ]
+    published = tmp_path / "published" / source.name
+    assert published.is_file()
+    loaded = load_article(published)
+    assert loaded.metadata["blogger_post_id"] == "123"
+    assert loaded.metadata["status"] == "published"
