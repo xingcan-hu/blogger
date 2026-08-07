@@ -9,7 +9,7 @@ from PIL import Image
 SCRIPT = Path(__file__).parents[1] / ".agents" / "skills" / "blogger-images" / "scripts" / "prepare_image.py"
 
 
-def test_prepare_image_outputs_webp_and_metadata(tmp_path):
+def test_prepare_image_preserves_small_source_without_compression(tmp_path):
     source = tmp_path / "source.png"
     Image.new("RGB", (2000, 1000), "#336699").save(source)
     result = subprocess.run(
@@ -34,9 +34,39 @@ def test_prepare_image_outputs_webp_and_metadata(tmp_path):
 
     assert payload["width"] == 2000
     assert payload["height"] == 1000
-    assert payload["output"].endswith("ai-tool-workflow.webp")
+    assert payload["output"].endswith("ai-tool-workflow.png")
     assert payload["markdown"].startswith("![AI 工具工作流程示意图](https://")
-    assert (tmp_path / "output" / "ai-tool-workflow.webp").is_file()
+    output = tmp_path / "output" / "ai-tool-workflow.png"
+    assert output.is_file()
+    assert output.read_bytes() == source.read_bytes()
+    assert payload["processing"] == "preserved_original"
+    assert payload["output_bytes"] < 5_000_000
+
+
+def test_prepare_image_optimizes_source_larger_than_two_mb(tmp_path):
+    source = tmp_path / "large-source.bmp"
+    Image.new("RGB", (2000, 1000), "#336699").save(source)
+    assert source.stat().st_size > 2_000_000
+    result = subprocess.run(
+        [
+            sys.executable,
+            str(SCRIPT),
+            str(source),
+            "--output-dir",
+            str(tmp_path / "output"),
+            "--name",
+            "large-source",
+            "--alt",
+            "大尺寸测试图片",
+        ],
+        check=True,
+        capture_output=True,
+        text=True,
+    )
+    payload = json.loads(result.stdout)
+
+    assert payload["output"].endswith("large-source.webp")
+    assert payload["processing"] == "optimized_webp"
     assert payload["output_bytes"] < 5_000_000
 
 

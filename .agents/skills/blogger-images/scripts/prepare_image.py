@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Create an SEO-ready WebP image and emit Markdown/front-matter metadata."""
+"""Prepare an SEO-ready image and emit Markdown/front-matter metadata."""
 
 from __future__ import annotations
 
@@ -7,10 +7,13 @@ import argparse
 import json
 from pathlib import Path
 import re
+import shutil
 
 from PIL import Image, ImageOps
 
 MAX_OUTPUT_BYTES = 5_000_000
+PRESERVE_SOURCE_BYTES = 2_000_000
+FORMAT_EXTENSIONS = {"GIF": ".gif", "JPEG": ".jpg", "PNG": ".png", "WEBP": ".webp"}
 
 
 def parser() -> argparse.ArgumentParser:
@@ -39,21 +42,36 @@ def main() -> int:
     if not 40 <= args.quality <= 95:
         raise SystemExit("--quality must be between 40 and 95")
 
-    destination = args.output_dir / f"{args.name}.webp"
-    if destination.exists() and not args.force:
-        raise SystemExit(f"Refusing to overwrite existing image: {destination}")
-    destination.parent.mkdir(parents=True, exist_ok=True)
-
     source_bytes = args.source.stat().st_size
     with Image.open(args.source) as opened:
-        image = ImageOps.exif_transpose(opened)
-        if image.width > args.max_width:
-            height = round(image.height * args.max_width / image.width)
-            image = image.resize((args.max_width, height), Image.Resampling.LANCZOS)
-        if image.mode not in {"RGB", "RGBA"}:
-            image = image.convert("RGBA" if "transparency" in image.info else "RGB")
-        image.save(destination, "WEBP", quality=args.quality, method=6, exif=b"")
-        width, height = image.size
+        source_format = opened.format
+        if source_bytes <= PRESERVE_SOURCE_BYTES:
+            extension = FORMAT_EXTENSIONS.get(source_format or "")
+            if not extension:
+                raise SystemExit(f"Cannot preserve unsupported image format: {source_format or 'unknown'}")
+            if opened.getexif():
+                raise SystemExit("Source image is 2 MB or smaller but contains EXIF; remove metadata without lossy recompression first")
+            destination = args.output_dir / f"{args.name}{extension}"
+            width, height = opened.size
+            processing = "preserved_original"
+        else:
+            destination = args.output_dir / f"{args.name}.webp"
+            image = ImageOps.exif_transpose(opened)
+            if image.width > args.max_width:
+                height = round(image.height * args.max_width / image.width)
+                image = image.resize((args.max_width, height), Image.Resampling.LANCZOS)
+            if image.mode not in {"RGB", "RGBA"}:
+                image = image.convert("RGBA" if "transparency" in image.info else "RGB")
+            width, height = image.size
+            processing = "optimized_webp"
+
+        if destination.exists() and not args.force:
+            raise SystemExit(f"Refusing to overwrite existing image: {destination}")
+        destination.parent.mkdir(parents=True, exist_ok=True)
+        if processing == "preserved_original":
+            shutil.copyfile(args.source, destination)
+        else:
+            image.save(destination, "WEBP", quality=args.quality, method=6, exif=b"")
 
     output_bytes = destination.stat().st_size
     if output_bytes > MAX_OUTPUT_BYTES:
@@ -69,6 +87,7 @@ def main() -> int:
         "reduction_percent": round((1 - output_bytes / source_bytes) * 100, 1) if source_bytes else 0,
         "width": width,
         "height": height,
+        "processing": processing,
         "markdown": f"![{args.alt.strip()}]({url})",
         "image_dimensions": {args.alt.strip(): [width, height]},
     }

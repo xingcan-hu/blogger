@@ -41,9 +41,10 @@ After the image commit is available on GitHub Pages, verify its HTTPS URL return
 
 ## Quality gates
 
-- Output WebP unless transparency/animation or a platform constraint requires another format.
-- Prioritize legibility over aggressive compression. Default to a maximum width of 2560 px and WebP quality 92; preserve aspect ratio and never upscale.
-- Strip EXIF metadata and normalize orientation.
+- If the source image is 2 MB or smaller, preserve its original bytes, format, dimensions, and quality; do not resize, recompress, or convert it. Confirm it contains no EXIF metadata before publishing.
+- Only optimize sources larger than 2 MB. Output WebP unless transparency, animation, or a platform constraint requires another format.
+- For sources larger than 2 MB, prioritize legibility over aggressive compression. Default to a maximum width of 2560 px and WebP quality 92; preserve aspect ratio and never upscale.
+- Strip EXIF metadata and normalize orientation when optimization is required. Reject an otherwise-preserved small source that contains EXIF until the metadata can be removed without lossy recompression.
 - Keep each published image below 5 MB. Only reduce dimensions or quality when necessary to meet that limit, and visually confirm that interface text remains readable.
 - Store explicit intrinsic width and height in `image_dimensions`.
 - Use stable URLs; create a new filename when changing an already cached image materially.
