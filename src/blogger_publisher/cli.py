@@ -10,33 +10,41 @@ from pathlib import Path
 import sys
 from urllib.parse import urlparse
 from urllib.request import Request, urlopen
+from xml.etree import ElementTree
 import webbrowser
 
 from bs4 import BeautifulSoup
 
-from .api import BloggerClient, BloggerError
+from .api import BloggerClient, BloggerError, SearchConsoleClient
 from .content import ContentError, load_article, mark_published, render_article, save_metadata, seo_audit, validate_article
 
 
 PROJECT_ROOT = Path.cwd()
 DEFAULT_TOKEN = PROJECT_ROOT / ".blogger_token.json"
+DEFAULT_GSC_TOKEN = PROJECT_ROOT / ".gsc_token.json"
 
 
 def parser() -> argparse.ArgumentParser:
     root = argparse.ArgumentParser(prog="blogger", description="Publish Markdown posts to Blogger")
     root.add_argument("--client-secret", type=Path, default=os.getenv("BLOGGER_CLIENT_SECRET"))
     root.add_argument("--token", type=Path, default=DEFAULT_TOKEN)
+    root.add_argument("--gsc-token", type=Path, default=DEFAULT_GSC_TOKEN)
+    root.add_argument("--gsc-site", default=os.getenv("GSC_SITE_URL"))
     commands = root.add_subparsers(dest="command", required=True)
     for name in ("validate", "seo", "preview", "verify", "draft", "publish", "update"):
         command = commands.add_parser(name)
         command.add_argument("post", type=Path)
     commands.choices["preview"].add_argument("--open", action="store_true", dest="open_browser")
+    sitemap = commands.add_parser("sitemap", help="Submit Blogger's generated sitemaps to GSC")
+    sitemap.add_argument("action", choices=("show", "setup", "submit", "status"))
     return root
 
 
 def main(argv: list[str] | None = None) -> int:
     args = parser().parse_args(argv)
     try:
+        if args.command == "sitemap":
+            return _sitemap_command(args)
         article = load_article(args.post)
         if args.command == "validate":
             errors = validate_article(article)
@@ -135,6 +143,66 @@ def main(argv: list[str] | None = None) -> int:
     except (ContentError, BloggerError) as error:
         print(f"ERROR: {error}", file=sys.stderr)
         return 2
+
+
+def _sitemap_command(args) -> int:
+    if not args.client_secret and not args.token.is_file():
+        raise BloggerError("Provide --client-secret/BLOGGER_CLIENT_SECRET or an existing --token file")
+    client_secret = Path(args.client_secret) if args.client_secret else None
+    blogger = BloggerClient(client_secret, args.token)
+    blog_url = str(blogger.blog.get("url", "")).rstrip("/")
+    if not blog_url.startswith("https://"):
+        raise BloggerError(f"Expected an HTTPS Blogger URL, got: {blog_url or '<missing>'}")
+    sitemap_urls = [f"{blog_url}/sitemap.xml", f"{blog_url}/sitemap-pages.xml"]
+    if args.action == "show":
+        print(json.dumps({"blog": blog_url, "sitemaps": sitemap_urls}, indent=2))
+        return 0
+    if not args.client_secret and not args.gsc_token.is_file() and not args.token.is_file():
+        raise BloggerError(
+            "GSC OAuth token is missing; provide --client-secret/BLOGGER_CLIENT_SECRET for first authorization"
+        )
+    gsc = SearchConsoleClient(client_secret, args.gsc_token, oauth_source=args.token)
+    if args.action == "setup":
+        site_url = blog_url + "/"
+        gsc.add_site(site_url)
+        result = gsc.site(site_url)
+        print(json.dumps({"site": site_url, **result}, ensure_ascii=False, indent=2))
+        if result.get("permissionLevel") == "siteUnverifiedUser":
+            raise BloggerError(
+                "GSC property was added but is not verified; verify ownership in Search Console, then run sitemap submit"
+            )
+        return 0
+    site_url = gsc.resolve_site(blog_url, args.gsc_site)
+    if args.action == "status":
+        submitted = {
+            str(item.get("path")): item for item in gsc.list_sitemaps(site_url)
+        }
+        results = [submitted[url] for url in sitemap_urls if url in submitted]
+        print(json.dumps({"site": site_url, "sitemaps": results}, ensure_ascii=False, indent=2))
+        return 0
+    results = []
+    for sitemap_url in sitemap_urls:
+        if _sitemap_has_entries(sitemap_url):
+            gsc.submit(site_url, sitemap_url)
+            results.append({"path": sitemap_url, "submitted": True})
+        else:
+            try:
+                gsc.delete(site_url, sitemap_url)
+            except Exception as error:
+                if getattr(getattr(error, "resp", None), "status", None) != 404:
+                    raise
+            results.append({"path": sitemap_url, "submitted": False, "reason": "empty sitemap"})
+    print(json.dumps({"site": site_url, "sitemaps": results}, ensure_ascii=False, indent=2))
+    return 0
+
+
+def _sitemap_has_entries(url: str) -> bool:
+    try:
+        with urlopen(Request(url, headers={"User-Agent": "blogger-publisher-sitemap/1.0"}), timeout=30) as response:
+            root = ElementTree.fromstring(response.read())
+    except (OSError, ElementTree.ParseError) as error:
+        raise BloggerError(f"Could not read sitemap {url}: {error}") from error
+    return any(child.tag.rsplit("}", 1)[-1] in {"url", "sitemap"} for child in root)
 
 
 def _preview(title: str, description: str, content: str) -> Path:

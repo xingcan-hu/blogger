@@ -4,3 +4,4 @@
 .pytest_cache/
 __pycache__/
 .blogger_token.json
+.gsc_token.json

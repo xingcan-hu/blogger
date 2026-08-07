@@ -1,6 +1,7 @@
 from pathlib import Path
 
 from blogger_publisher.cli import _generic_permalink, _live_seo_checks, _permalink_matches_slug, main
+from blogger_publisher.api import SearchConsoleClient
 from blogger_publisher.content import load_article
 import blogger_publisher.cli as cli
 
@@ -78,7 +79,7 @@ def test_publish_uses_slug_then_restores_title(tmp_path, monkeypatch):
     class FakeClient:
         blog = {"name": "Test Blog"}
 
-        def __init__(self, client_secret, token):
+        def __init__(self, client_secret, token, oauth_source=None):
             pass
 
         def create_live(self, title, content, labels):
@@ -118,3 +119,115 @@ def test_publish_uses_slug_then_restores_title(tmp_path, monkeypatch):
     loaded = load_article(published)
     assert loaded.metadata["blogger_post_id"] == "123"
     assert loaded.metadata["status"] == "published"
+
+
+def test_sitemap_show_uses_blogger_native_urls(tmp_path, monkeypatch, capsys):
+    class FakeClient:
+        blog = {"name": "Test Blog", "url": "https://example.blogspot.com/"}
+
+        def __init__(self, client_secret, token):
+            pass
+
+    monkeypatch.setattr(cli, "BloggerClient", FakeClient)
+    token = tmp_path / "token.json"
+    token.write_text("{}", encoding="utf-8")
+
+    assert main(["--token", str(token), "sitemap", "show"]) == 0
+    output = capsys.readouterr().out
+    assert "https://example.blogspot.com/sitemap.xml" in output
+    assert "https://example.blogspot.com/sitemap-pages.xml" in output
+
+
+def test_sitemap_submit_autodiscovers_gsc_property(tmp_path, monkeypatch, capsys):
+    submitted = []
+
+    class FakeBloggerClient:
+        blog = {"name": "Test Blog", "url": "https://example.blogspot.com/"}
+
+        def __init__(self, client_secret, token):
+            pass
+
+    class FakeGscClient:
+        def __init__(self, client_secret, token, oauth_source=None):
+            pass
+
+        def resolve_site(self, blog_url, requested_site):
+            assert requested_site is None
+            return "sc-domain:example.blogspot.com"
+
+        def submit(self, site_url, sitemap_url):
+            submitted.append((site_url, sitemap_url))
+
+        def delete(self, site_url, sitemap_url):
+            pass
+
+    monkeypatch.setattr(cli, "BloggerClient", FakeBloggerClient)
+    monkeypatch.setattr(cli, "SearchConsoleClient", FakeGscClient)
+    monkeypatch.setattr(cli, "_sitemap_has_entries", lambda url: True)
+    blogger_token = tmp_path / "blogger-token.json"
+    gsc_token = tmp_path / "gsc-token.json"
+    blogger_token.write_text("{}", encoding="utf-8")
+    gsc_token.write_text("{}", encoding="utf-8")
+
+    assert main([
+        "--token", str(blogger_token), "--gsc-token", str(gsc_token),
+        "sitemap", "submit",
+    ]) == 0
+    assert len(submitted) == 2
+    assert submitted[0][1].endswith("/sitemap.xml")
+
+
+def test_gsc_property_resolution_prefers_exact_domain():
+    client = object.__new__(SearchConsoleClient)
+
+    class Sites:
+        def list(self):
+            return self
+
+        def execute(self):
+            return {"siteEntry": [
+                {"siteUrl": "sc-domain:blogspot.com", "permissionLevel": "siteOwner"},
+                {"siteUrl": "sc-domain:example.blogspot.com", "permissionLevel": "siteOwner"},
+                {"siteUrl": "https://example.blogspot.com/", "permissionLevel": "siteFullUser"},
+            ]}
+
+    class Service:
+        def sites(self):
+            return Sites()
+
+    client.service = Service()
+    assert client.resolve_site("https://example.blogspot.com/") == "sc-domain:example.blogspot.com"
+
+
+def test_sitemap_setup_adds_url_prefix_property(tmp_path, monkeypatch, capsys):
+    added = []
+
+    class FakeBloggerClient:
+        blog = {"url": "https://example.blogspot.com/"}
+
+        def __init__(self, client_secret, token):
+            pass
+
+    class FakeGscClient:
+        def __init__(self, client_secret, token, oauth_source=None):
+            pass
+
+        def add_site(self, site_url):
+            added.append(site_url)
+
+        def site(self, site_url):
+            return {"siteUrl": site_url, "permissionLevel": "siteOwner"}
+
+    monkeypatch.setattr(cli, "BloggerClient", FakeBloggerClient)
+    monkeypatch.setattr(cli, "SearchConsoleClient", FakeGscClient)
+    blogger_token = tmp_path / "blogger-token.json"
+    gsc_token = tmp_path / "gsc-token.json"
+    blogger_token.write_text("{}", encoding="utf-8")
+    gsc_token.write_text("{}", encoding="utf-8")
+
+    assert main([
+        "--token", str(blogger_token), "--gsc-token", str(gsc_token),
+        "sitemap", "setup",
+    ]) == 0
+    assert added == ["https://example.blogspot.com/"]
+    assert "siteOwner" in capsys.readouterr().out
