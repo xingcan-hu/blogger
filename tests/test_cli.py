@@ -32,8 +32,8 @@ def test_validate_command(tmp_path, capsys):
 
 
 def test_publish_requires_credentials(tmp_path, capsys):
-    assert main(["publish", str(article(tmp_path))]) == 2
-    assert "Provide --client-secret" in capsys.readouterr().err
+    assert main(["--token", str(tmp_path / "missing-token.json"), "publish", str(article(tmp_path))]) == 2
+    assert "existing --token" in capsys.readouterr().err
 
 
 def test_generic_permalink_detection():

@@ -18,18 +18,20 @@ class BloggerError(RuntimeError):
 
 
 class BloggerClient:
-    def __init__(self, client_secret: Path, token_path: Path):
+    def __init__(self, client_secret: Path | None, token_path: Path):
         self.token_path = token_path
         self.service = build("blogger", "v3", credentials=self._credentials(client_secret))
         self.blog = self._single_blog()
 
-    def _credentials(self, client_secret: Path) -> Credentials:
+    def _credentials(self, client_secret: Path | None) -> Credentials:
         creds = None
         if self.token_path.exists():
             creds = Credentials.from_authorized_user_file(self.token_path, SCOPES)
         if creds and creds.expired and creds.refresh_token:
             creds.refresh(Request())
         if not creds or not creds.valid:
+            if client_secret is None:
+                raise BloggerError("OAuth token is missing or invalid; provide --client-secret or BLOGGER_CLIENT_SECRET")
             if not client_secret.exists():
                 raise BloggerError(f"OAuth client secret not found: {client_secret}")
             flow = InstalledAppFlow.from_client_secrets_file(client_secret, SCOPES)

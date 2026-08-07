@@ -61,9 +61,9 @@ def main(argv: list[str] | None = None) -> int:
                 webbrowser.open(output.as_uri())
             print(output)
             return 0
-        if not args.client_secret:
-            raise BloggerError("Provide --client-secret or BLOGGER_CLIENT_SECRET")
-        client = BloggerClient(Path(args.client_secret), args.token)
+        if not args.client_secret and not args.token.is_file():
+            raise BloggerError("Provide --client-secret/BLOGGER_CLIENT_SECRET or an existing --token file")
+        client = BloggerClient(Path(args.client_secret) if args.client_secret else None, args.token)
         post_id = article.metadata.get("blogger_post_id")
         if args.command == "verify":
             if not post_id:
