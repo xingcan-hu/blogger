@@ -1,6 +1,6 @@
 ---
-title: 财报 PDF 翻译怎么做？数字、单位和表格核对指南
-slug: translate-financial-report-pdf
+blogger_post_id: '1761512252050272504'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-financial-report-pdf.html
 description: 财报 PDF 翻译怎么做才不误读关键数字？本文说明外文年报的翻译与对照流程，并整理币种、数量级、负数、表格、脚注、审计意见和会计术语的核对方法。
 image_dimensions:
   外文财报与中文阅读稿之间带有翻译箭头，放大镜正在核对表格和图表的编辑插画:
@@ -12,8 +12,12 @@ labels:
 - 财报阅读
 - 实用指南
 primary_keyword: 财报 PDF 翻译
+published_at: '2026-08-07T03:43:51-07:00'
 researched_at: '2026-08-07'
-status: draft
+slug: translate-financial-report-pdf
+status: published
+title: 财报 PDF 翻译怎么做？数字、单位和表格核对指南
+updated_at: '2026-08-07'
 ---
 
 做财报 PDF 翻译时，最危险的错误往往不是一句英文读得不够顺，而是把币种、数量级、负数或会计期间看错。一份中文译文即使段落通顺，只要把“单位：百万美元”漏掉，后面的数字就可能全部失去意义。比较稳妥的做法，是把机器翻译当作阅读辅助：先用它理解章节和说明，再回到原始财报核对数字、表头和脚注。

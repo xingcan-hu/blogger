@@ -1,19 +1,23 @@
 ---
+blogger_post_id: '8804708388461423991'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-large-pdf-files.html
 description: PDF 太大怎么翻译？本文提供压缩、按章节拆分、分批翻译和重新合并的完整流程，并说明如何保护 OCR 清晰度、核对页码、管理额度及保持术语一致性。
+image_dimensions:
+  大型 PDF 拆分成章节、分批处理后重新合并的编辑插画:
+  - 1672
+  - 941
 labels:
 - PDF 工具
 - 翻译工具
 - 文件处理
 - 效率工具
-image_dimensions:
-  大型 PDF 拆分成章节、分批处理后重新合并的编辑插画:
-  - 1672
-  - 941
 primary_keyword: PDF 太大怎么翻译
-slug: translate-large-pdf-files
-status: draft
+published_at: '2026-08-07T03:43:55-07:00'
 researched_at: '2026-08-07'
+slug: translate-large-pdf-files
+status: published
 title: PDF 太大怎么翻译？压缩、拆分、翻译与合并完整流程
+updated_at: '2026-08-07'
 ---
 
 PDF 太大怎么翻译，取决于它究竟是“文件体积超限”，还是“页数、字符数或月度额度超限”。先看平台报错和官方限制，再决定压缩还是拆分：图片太多导致体积大，可以适度压缩；页数太多或需要按章节校对，拆分通常更稳。完成后按原顺序合并，并统一术语与页码。

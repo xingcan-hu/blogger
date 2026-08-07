@@ -1,19 +1,23 @@
 ---
+blogger_post_id: '6684121030545066015'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-scanned-pdf-with-ocr.html
 description: 扫描版 PDF 翻译需要先通过 OCR 识别图片中的文字。本文说明如何判断扫描件、整理页面、选择翻译工具，并逐项检查数字、表格、术语与多栏阅读顺序。
+image_dimensions:
+  扫描文档经过 OCR 识别后转换为结构化双栏内容的编辑插画:
+  - 1672
+  - 941
 labels:
 - PDF 工具
 - 翻译工具
 - OCR
 - 效率工具
-image_dimensions:
-  扫描文档经过 OCR 识别后转换为结构化双栏内容的编辑插画:
-  - 1672
-  - 941
 primary_keyword: 扫描版 PDF 翻译
-slug: translate-scanned-pdf-with-ocr
-status: draft
+published_at: '2026-08-07T03:44:00-07:00'
 researched_at: '2026-08-07'
+slug: translate-scanned-pdf-with-ocr
+status: published
 title: 扫描版 PDF 翻译指南：用 OCR 识别文字并检查排版
+updated_at: '2026-08-07'
 ---
 
 扫描版 PDF 翻译不能直接把页面当普通文字处理，因为文件里往往只有一张张图片。正确顺序是先用 OCR 识别文字，再翻译识别结果，最后对照原页检查姓名、数字、表格和阅读顺序。页面越清楚、方向越端正，后面的识别和翻译越有可靠的基础。

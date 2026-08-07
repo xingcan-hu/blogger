@@ -1,19 +1,23 @@
 ---
-title: Google 翻译 PDF 格式乱怎么办？原因与替代流程
-slug: google-translate-pdf-formatting
+blogger_post_id: '3967846026395360101'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/google-translate-pdf-formatting.html
 description: Google 翻译 PDF 格式乱、段落错位或无法在手机上传时，可以从文字层、分页、多栏、字体和文件限制逐项排查，并按文档来源选择更稳妥的替代流程。
+image_dimensions:
+  放大镜检查散乱 PDF 页面元素并将其重新整理成清晰版式的编辑插画:
+  - 1672
+  - 941
 labels:
 - PDF 工具
 - 翻译工具
 - Google 翻译
 - 故障排查
-image_dimensions:
-  放大镜检查散乱 PDF 页面元素并将其重新整理成清晰版式的编辑插画:
-  - 1672
-  - 941
 primary_keyword: Google 翻译 PDF 格式乱
-status: draft
+published_at: '2026-08-07T03:42:22-07:00'
 researched_at: '2026-08-07'
+slug: google-translate-pdf-formatting
+status: published
+title: Google 翻译 PDF 格式乱怎么办？原因与替代流程
+updated_at: '2026-08-07'
 ---
 
 Google 翻译 PDF 格式乱，并不一定意味着某个按钮点错了。PDF 保存的是页面最终呈现结果，文字可能按坐标散落在页面上，也可能整页都是扫描图片；翻译后的中文长度又与原文不同，段落、表格和多栏版式自然更容易变化。比较稳妥的处理顺序是：先判断文件类型，再决定翻译 PDF、翻译源文件，还是只提取文字辅助阅读。

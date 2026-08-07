@@ -1,19 +1,24 @@
 ---
-title: DeepL 翻译 PDF 失败怎么办？扫描件、字体与排版排查
-slug: deepl-pdf-translation-problems
-description: DeepL 翻译 PDF 失败或结果排版异常时，可从账号、扫描质量、自定义字体、大图、CAD 导出文件和源文档逐项排查，并选择 PDF 或 Word 输出流程。
+blogger_post_id: '1974295021587081377'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/deepl-pdf-translation-problems.html
+description: DeepL 翻译 PDF 失败或结果排版异常时，可从账号、扫描质量、自定义字体、大图、CAD 导出文件和源文档逐项排查，并选择 PDF 或
+  Word 输出流程。
+image_dimensions:
+  扫描页经放大检查后进入文档处理流程并输出整洁页面的编辑插画:
+  - 1672
+  - 941
 labels:
 - PDF 工具
 - 翻译工具
 - DeepL
 - 故障排查
-image_dimensions:
-  扫描页经放大检查后进入文档处理流程并输出整洁页面的编辑插画:
-  - 1672
-  - 941
 primary_keyword: DeepL 翻译 PDF 失败
-status: draft
+published_at: '2026-08-07T03:42:12-07:00'
 researched_at: '2026-08-07'
+slug: deepl-pdf-translation-problems
+status: published
+title: DeepL 翻译 PDF 失败怎么办？扫描件、字体与排版排查
+updated_at: '2026-08-07'
 ---
 
 DeepL 翻译 PDF 失败，或下载后出现文字错位，不一定是语言选择的问题。根据 DeepL 官方说明，PDF 翻译依赖 OCR，扫描质量、自定义字体和较大的图片都可能影响结果；从 CAD 软件导出的 PDF 则不受支持。排查时应先确认文件来源和结构，再决定继续处理 PDF，还是改用 Word、PowerPoint 等源文档。

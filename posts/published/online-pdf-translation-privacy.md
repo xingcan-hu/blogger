@@ -1,6 +1,6 @@
 ---
-title: 在线 PDF 翻译安全吗？上传文件前的隐私检查清单
-slug: online-pdf-translation-privacy
+blogger_post_id: '3783902659502023343'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/online-pdf-translation-privacy.html
 description: 在线 PDF 翻译安全吗？本文从文件敏感度、加密传输、服务器保存时间、结果下载链接、第三方处理和版权责任入手，整理上传文档前必须完成的隐私检查。
 image_dimensions:
   PDF 文档位于透明防护盾和锁前，旁边有计时器与风险提示的编辑插画:
@@ -12,8 +12,12 @@ labels:
 - 隐私安全
 - 实用指南
 primary_keyword: 在线 PDF 翻译安全吗
+published_at: '2026-08-07T03:42:26-07:00'
 researched_at: '2026-08-07'
-status: draft
+slug: online-pdf-translation-privacy
+status: published
+title: 在线 PDF 翻译安全吗？上传文件前的隐私检查清单
+updated_at: '2026-08-07'
 ---
 
 在线 PDF 翻译安全吗，不能只看网页上有没有锁形图标，也不能只凭“自动删除”四个字判断。真正需要考虑的是：文件里有什么、平台为了完成翻译会处理哪些数据、保存多久、是否交给其他服务商，以及这份文件本来能不能上传。

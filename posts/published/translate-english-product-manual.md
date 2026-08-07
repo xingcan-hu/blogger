@@ -1,18 +1,21 @@
 ---
+blogger_post_id: '938403778024187394'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-english-product-manual.html
 description: 英文说明书翻译不能只看正文是否通顺。本指南说明如何翻译产品说明书 PDF，并逐项核对安全警告、操作步骤、零件名称、参数表、图片标注与版本信息，降低误读风险。
 image_dimensions:
-  英文产品说明书从原文转换为中文阅读稿的编辑插画，页面包含安全提示、零件分解图、操作步骤和参数表:
-  - 1672
-  - 941
+  ? 英文产品说明书从原文转换为中文阅读稿的编辑插画，页面包含安全提示、零件分解图、操作步骤和参数表
+  : - 1672
+    - 941
 labels:
 - PDF 工具
 - 翻译工具
 - 产品说明书
 - 使用指南
 primary_keyword: 英文说明书翻译
-slug: translate-english-product-manual
-status: draft
+published_at: '2026-08-07T03:43:33-07:00'
 researched_at: '2026-08-07'
+slug: translate-english-product-manual
+status: published
 title: 英文说明书翻译成中文：警告、参数和排版核对指南
 updated_at: '2026-08-07'
 ---
