@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '4945838998791354564'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/why-wechat-video-looks-blurry.html
-description: 微信视频画质压缩常发生在发送、导出和转发的连续处理里。本文解释码率、分辨率与二次编码的影响，并给出尽量保住清晰度、减少重复编码和正确传原文件的方法。
+description: 微信视频画质压缩后为什么变糊？本文解释发送、导出和转发中的码率、分辨率与二次编码影响，并给出减少重复压缩、尽量保住清晰度和发送原文件的方法。
 image_dimensions:
   清晰胶片穿过透明漏斗后细节逐渐减少的编辑插画:
   - 1672

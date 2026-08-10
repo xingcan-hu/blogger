@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '7715388876753609884'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-research-paper-pdf.html
-description: PDF 论文怎么翻译成中文又不打乱公式和排版？本文用合法公开论文说明免费英译中流程，并逐项讲清标题、摘要、表格、参考文献、公式和学术术语的核对方法。
+description: PDF 论文怎么翻译成中文并尽量保留公式和排版？本文用合法公开论文演示英译中流程，讲清标题、摘要、表格、参考文献、公式与学术术语的核对方法。
 image_dimensions:
   英文论文转换为中文时，公式、图表和双栏结构保持对应的编辑插画:
   - 1672

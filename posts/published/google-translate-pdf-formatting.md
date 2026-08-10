@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '3967846026395360101'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/google-translate-pdf-formatting.html
-description: Google 翻译 PDF 格式乱、段落错位或无法在手机上传时，可以从文字层、分页、多栏、字体和文件限制逐项排查，并按文档来源选择更稳妥的替代流程。
+description: Google 翻译 PDF 格式乱、段落错位或手机无法上传怎么办？本文从文字层、分页、多栏、字体与文件限制逐项排查，并按文档来源提供更稳妥的替代流程。
 image_dimensions:
   放大镜检查散乱 PDF 页面元素并将其重新整理成清晰版式的编辑插画:
   - 1672

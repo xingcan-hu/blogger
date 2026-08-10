@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '6684121030545066015'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-scanned-pdf-with-ocr.html
-description: 扫描版 PDF 翻译需要先通过 OCR 识别图片中的文字。本文说明如何判断扫描件、整理页面、选择翻译工具，并逐项检查数字、表格、术语与多栏阅读顺序。
+description: 扫描版 PDF 翻译怎么做？先用 OCR 识别图片文字，再选择翻译工具。本文讲清扫描件判断、页面整理，以及数字、表格、术语和多栏阅读顺序的检查方法。
 image_dimensions:
   扫描文档经过 OCR 识别后转换为结构化双栏内容的编辑插画:
   - 1672

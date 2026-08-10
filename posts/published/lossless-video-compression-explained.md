@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '5927124175673886967'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/lossless-video-compression-explained.html
-description: 视频无损压缩到底能省多少空间？本文区分数学无损、视觉无损与有损转码，解释为什么视频大幅变小通常会丢失信息，以及怎样判断宣传说法并设定合理预期。
+description: 视频无损压缩真的能大幅减小文件吗？本文区分数学无损、视觉无损与有损转码，解释画质、码率和体积之间的关系，帮你识别宣传说法并选择合适的压缩方案。
 image_dimensions:
   彩色胶片经过压缩装置后丢失少量细节的编辑插画:
   - 1672

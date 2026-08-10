@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '5210225378915516741'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/fix-pdf-translation-formatting.html
-description: PDF 翻译格式错乱通常与文字层、字体替换、译文长度、多栏顺序或表格文本框有关。本文按症状说明七类原因、推荐修复顺序，以及何时应放弃局部调整并回到源文件。
+description: PDF 翻译格式错乱怎么办？本文按症状排查文字层、字体替换、译文长度、多栏顺序和表格文本框等七类原因，给出修复顺序及回到源文件重做的判断方法。
 image_dimensions:
   错位的PDF页面经过对齐和修复后变得整齐的编辑插画，包含文本框、表格和排版工具符号:
   - 1672

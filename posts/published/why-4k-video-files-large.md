@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '5109949961005142786'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/why-4k-video-files-large.html
-description: 4K视频太大，往往是分辨率、帧率、码率、HDR与编码格式共同作用。本文说明手机4K文件为何迅速增长，以及日常、旅行、运动和后期剪辑该怎样选择录制规格。
+description: 4K视频太大是什么原因？本文解释分辨率、帧率、码率、HDR与编码格式如何影响文件体积，并按日常、旅行、运动和后期剪辑场景给出手机录制规格建议。
 image_dimensions:
   手机镜头前展开由像素方块组成的城市与家庭场景，旁边是容量逐渐增加的存储模块编辑插画:
   - 1672

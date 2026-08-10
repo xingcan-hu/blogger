@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '1761512252050272504'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-financial-report-pdf.html
-description: 财报 PDF 翻译怎么做才不误读关键数字？本文说明外文年报的翻译与对照流程，并整理币种、数量级、负数、表格、脚注、审计意见和会计术语的核对方法。
+description: 财报 PDF 翻译怎么做才不误读关键数据？本文说明外文年报的翻译与对照流程，重点讲解币种、数量级、负数、表格、脚注、审计意见和会计术语的准确核对方法。
 image_dimensions:
   外文财报与中文阅读稿之间带有翻译箭头，放大镜正在核对表格和图表的编辑插画:
   - 1672

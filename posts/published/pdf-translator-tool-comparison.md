@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '5403103065157022278'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/pdf-translator-tool-comparison.html
-description: PDF 翻译工具对比 PDFTranslator.org、DeepL 与 Google 翻译的官方功能、文件限制、OCR 条件和适用场景，帮助你按文档类型选择。
+description: PDF 翻译工具对比：从格式保留、OCR、文件限制、语言支持与隐私角度比较 PDFTranslator.org、DeepL 和 Google 翻译，帮你按文档类型选择合适工具。
 image_dimensions:
   三种 PDF 翻译路径连接到选择罗盘和不同使用场景的编辑插画:
   - 1672

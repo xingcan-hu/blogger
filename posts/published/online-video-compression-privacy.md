@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '8051871607131245973'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/online-video-compression-privacy.html
-description: 在线视频压缩安全吗，不能只看 HTTPS 或自动删除。本文核对文件保存、Cookie、第三方服务与跨境传输，并给出私人视频上传前的风险清单。
+description: 在线视频压缩安全吗？不能只看 HTTPS 或“自动删除”承诺。本文从文件保存、Cookie、第三方服务与跨境传输入手，提供私人和会议视频上传前的隐私检查清单。
 image_dimensions:
   视频胶片与卷盘位于透明盾牌和锁后的云端隐私概念插画:
   - 1672

@@ -1,8 +1,7 @@
 ---
 blogger_post_id: '5373276514618950103'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/irs-w4-form-pdf-guide.html
-description: IRS W-4 是什么、什么时候需要填写、五个步骤分别做什么？本文用中文拆解这份美国预扣税表，并介绍如何用 PDFTranslator.org
-  免费翻译官方 PDF、对照阅读英文说明。
+description: IRS W-4 是什么、什么时候填写？本文用中文拆解美国预扣税表的五个步骤、表格结构与提交前检查重点，并说明如何借助 PDF 翻译工具阅读官方说明；不提供个案税务意见。
 image_dimensions:
   PDFTranslator.org 双语预览 IRS W-4 英文原文与中文译文:
   - 2560

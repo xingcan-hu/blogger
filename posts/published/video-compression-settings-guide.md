@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '195894435473721196'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/video-compression-settings-guide.html
-description: 视频压缩参数怎么设置，要看素材内容与交付场景。本文用访谈、游戏运动、屏幕录制和社交分享四类素材，说明分辨率、帧率与码率的调整顺序和检查方法。
+description: 视频压缩参数怎么设置？本文按访谈、游戏运动、屏幕录制和社交分享四类素材，说明分辨率、帧率、码率与编码格式的调整顺序，以及导出后的画质检查方法。
 image_dimensions:
   三组可调节的像素网格、连续画格与数据流汇向四种不同视频场景的编辑插画:
   - 1672

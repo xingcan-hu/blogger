@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '3783902659502023343'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/online-pdf-translation-privacy.html
-description: 在线 PDF 翻译安全吗？本文从文件敏感度、加密传输、服务器保存时间、结果下载链接、第三方处理和版权责任入手，整理上传文档前必须完成的隐私检查。
+description: 在线 PDF 翻译安全吗？上传合同、简历或论文前，先检查文件敏感度、加密传输、保存时间、下载链接、第三方处理与版权责任，降低隐私和文档泄露风险。
 image_dimensions:
   PDF 文档位于透明防护盾和锁前，旁边有计时器与风险提示的编辑插画:
   - 1672

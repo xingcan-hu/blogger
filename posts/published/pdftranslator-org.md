@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '231670768235034558'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/pdftranslator-org-review.html
-description: 实测如何用 PDFTranslator.org 免费翻译 PDF，观察格式保留、语言支持、免费额度与隐私规则，并说明它适合哪些读者和使用场景。
+description: 免费翻译 PDF 怎么操作？本文实测 PDFTranslator.org 的上传与下载流程，检查格式保留、语言支持、免费额度和隐私规则，并说明适合与不适合的使用场景。
 labels:
 - AI 工具
 - PDF 工具

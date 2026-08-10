@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '4019392193650902499'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-english-textbook-pdf.html
-description: 英文教材 PDF 翻译怎样做才便于真正学习？本文介绍按章节处理、建立术语表、核对公式图表、制作双语笔记，以及在许可范围内合理使用开放教材的方法。
+description: 英文教材 PDF 翻译怎样做才便于学习？本文介绍按章节处理、建立术语表、核对公式与图表、制作双语笔记的方法，并说明如何在许可范围内合理使用开放教材。
 image_dimensions:
   两本打开的教材通过彩色线条相连，周围有图表、几何图形和学习笔记的编辑插画:
   - 1672

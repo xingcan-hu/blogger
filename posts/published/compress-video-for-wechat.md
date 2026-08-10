@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '6870357931140732642'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/compress-video-for-wechat.html
-description: 微信视频太大怎么发送？本文从客户端提示、发送方式、目标大小和码率设置入手，说明如何缩小视频，同时减少画面模糊、反复导出、发送失败和设备兼容问题。
+description: 微信视频太大怎么发送？本文说明如何确认发送限制、选择文件或视频方式，并按目标大小设置分辨率与码率，减少画面模糊、反复导出、发送失败和兼容问题。
 image_dimensions:
   大型胶片通过漏斗缩成小视频并进入聊天气泡的编辑插画:
   - 1672

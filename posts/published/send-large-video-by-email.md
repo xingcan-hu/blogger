@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '1855036532608320394'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/send-large-video-by-email.html
-description: 邮件发送大视频时，附件上限、邮件编码和收件权限都会影响结果。本文说明何时压缩附件、何时改发云盘链接，并给出 Gmail、Outlook 场景下的检查清单。
+description: 邮件发送大视频该压缩附件还是发云盘链接？本文说明附件上限、邮件编码与收件权限的影响，并给出 Gmail、Outlook 常见场景的选择方法和发送前检查清单。
 image_dimensions:
   一封打开的信件连接小型视频文件与云端文件夹，两条发送路径清晰分开的编辑插画:
   - 1672

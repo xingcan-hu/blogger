@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '5142431186154613726'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/compress-1gb-video-to-100mb.html
-description: 1GB视频压缩到100MB不能只调分辨率。本文提供按时长反推总码率的公式，说明视频、音频、编码器和画面复杂度如何分配预算、预留封装空间并检查最终画质。
+description: 1GB视频压缩到100MB怎么设置？本文用视频时长反推目标码率，讲清分辨率、音频、编码器和画面复杂度的调整顺序，并说明如何检查最终体积与画质。
 image_dimensions:
   大量视频帧经过计算和压缩变成小型文件包的编辑插画:
   - 1672

@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '9104512074893607447'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/h264-vs-h265-compression.html
-description: H.264和H.265区别不只在压缩率。本文从设备兼容、编码时间、4K与HDR、文件分享和后期编辑出发，说明两种标准的实际取舍，帮你选择适合的视频编码方案。
+description: H.264和H.265区别有哪些？本文比较压缩率、画质、设备兼容、编码时间、4K与HDR、文件分享和后期编辑体验，帮你根据播放与存储需求选择编码格式。
 image_dimensions:
   两条不同编码路径连接多种播放设备的对比编辑插画:
   - 1672

@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '5892296050500474546'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/compress-video-for-discord.html
-description: Discord视频压缩先要核对账号和服务器当次上限，再按时长反推码率。本文给出压到10MB的计算、参数调整顺序、编码兼容性检查和替代发送方案。
+description: Discord视频压缩怎么压到10MB？先确认账号与服务器的上传上限，再按时长反推码率。本文给出参数调整顺序、兼容性检查和无法压小时的替代发送方案。
 image_dimensions:
   宽幅视频胶片折叠进透明小包并穿过聊天入口的编辑插画:
   - 1672

@@ -1,8 +1,7 @@
 ---
 blogger_post_id: '1974295021587081377'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/deepl-pdf-translation-problems.html
-description: DeepL 翻译 PDF 失败或结果排版异常时，可从账号、扫描质量、自定义字体、大图、CAD 导出文件和源文档逐项排查，并选择 PDF 或
-  Word 输出流程。
+description: DeepL 翻译 PDF 失败或排版异常怎么办？从账号权限、扫描质量、自定义字体、大图、CAD 导出文件和源文档逐项排查，并根据问题选择 PDF 或 Word 替代流程。
 image_dimensions:
   扫描页经放大检查后进入文档处理流程并输出整洁页面的编辑插画:
   - 1672

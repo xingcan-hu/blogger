@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '5620478684006235337'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/compressed-video-file-larger.html
-description: 视频压缩后变大通常不是故障，而是输出总码率、编码模式、帧率或音轨高于原文件。本文给出按文件信息逐项定位、调整导出设置和判断合理使用场景的方法。
+description: 视频压缩后变大怎么办？常见原因是输出码率、编码模式、帧率或音轨设置高于原文件。本文教你读取文件信息、逐项定位问题、重新设置导出参数并检查结果。
 image_dimensions:
   两卷视频胶片放在天平上而带有更多数据块的一侧更重的编辑插画:
   - 1672

@@ -1,7 +1,7 @@
 ---
 blogger_post_id: '8804708388461423991'
 blogger_url: https://aitooljournalhub.blogspot.com/2026/08/translate-large-pdf-files.html
-description: PDF 太大怎么翻译？本文提供压缩、按章节拆分、分批翻译和重新合并的完整流程，并说明如何保护 OCR 清晰度、核对页码、管理额度及保持术语一致性。
+description: PDF 太大怎么翻译？本文提供压缩、按章节拆分、分批翻译和重新合并的完整流程，并讲清如何保护 OCR 清晰度、核对页码、管理工具额度与保持术语一致。
 image_dimensions:
   大型 PDF 拆分成章节、分批处理后重新合并的编辑插画:
   - 1672
