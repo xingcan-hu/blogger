@@ -1,4 +1,6 @@
 ---
+blogger_post_id: '7076617160471426609'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/deepseek-harness-guide.html
 description: DeepSeek Harness 是什么？本文解释它解决的 Agent 工程问题、适合人群、Cordis 插件架构、事件日志与工具调用原理，并整理首发期开发者评价。
 image_dimensions:
   模型核心通过插件连接代码编辑器、终端、文件系统、安全沙箱和事件时间线的概念插画:
@@ -11,9 +13,10 @@ labels:
 - Agent
 - 开源软件
 primary_keyword: DeepSeek Harness
+published_at: '2026-08-14T02:45:01-07:00'
 researched_at: '2026-08-14'
 slug: deepseek-harness-guide
-status: draft
+status: published
 title: DeepSeek Harness 是什么？插件架构、适用场景与开发者评价
 updated_at: '2026-08-14'
 ---
