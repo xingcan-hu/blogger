@@ -1,19 +1,23 @@
 ---
-description: Disney+ 套餐怎么选？本文比较含广告与 Premium 价格、4K、下载和同看人数，并说明中国用户购买、FamilyPro 共享 Profile、Household 与儿童限制。
+blogger_post_id: '2295408318770602140'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/disney-plus-plans-china-guide.html
+description: Disney+ 套餐怎么选？比较广告、4K、下载、同看人数，并说明中国用户购买、FamilyPro 共享 Profile、Household 与儿童限制。
+image_dimensions:
+  一家人在客厅选择动画、太空、自然和冒险题材流媒体内容的插画:
+  - 1536
+  - 1024
 labels:
 - 流媒体
 - Disney+
 - 订阅指南
 - 影视娱乐
-image_dimensions:
-  一家人在客厅选择动画、太空、自然和冒险题材流媒体内容的插画:
-  - 1536
-  - 1024
 primary_keyword: Disney+ 套餐
+published_at: '2026-08-14T00:49:38-07:00'
 slug: disney-plus-plans-china-guide
-status: draft
+status: published
 tested_at: '2026-08-14'
 title: Disney+ 套餐新手指南：中国用户如何购买和观看
+updated_at: '2026-08-14'
 ---
 
 想集中看迪士尼动画、皮克斯、漫威、星球大战和国家地理，Disney+ 是最直接的正版平台之一。第一次购买时，真正需要弄清的却不只是片单：Disney+ 套餐有没有广告、一个账号能建几个 Profile、能几个人同时看、中国大陆能否直接使用，以及第三方共享账号会不会遇到 Household 验证。
