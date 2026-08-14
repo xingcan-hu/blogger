@@ -1,19 +1,23 @@
 ---
+blogger_post_id: '8978101545851861671'
+blogger_url: https://aitooljournalhub.blogspot.com/2026/08/hbo-max-plans-china-guide.html
 description: HBO Max 套餐怎么选？本文比较三档价格、画质和同看人数，并说明中国用户直购及通过 FamilyPro 共享 Profile 使用时的门槛、登录方法与儿童限制。
+image_dimensions:
+  一家人在客厅通过电视观看流媒体内容的插画:
+  - 1536
+  - 1024
 labels:
 - 流媒体
 - HBO Max
 - 订阅指南
 - 影视娱乐
-image_dimensions:
-  一家人在客厅通过电视观看流媒体内容的插画:
-  - 1536
-  - 1024
 primary_keyword: HBO Max 套餐
+published_at: '2026-08-13T19:31:58-07:00'
 slug: hbo-max-plans-china-guide
-status: draft
+status: published
 tested_at: '2026-08-14'
 title: HBO Max 套餐新手指南：中国用户如何购买和观看
+updated_at: '2026-08-14'
 ---
 
 想正版重温《老友记》和《生活大爆炸》，HBO Max 往往是最先需要了解的平台。对第一次接触的人来说，真正容易踩坑的却不是“有没有这两部剧”，而是 HBO Max 套餐怎么选、中国大陆能否直接注册、一个账号到底能几个人同时看，以及共享 Profile 是否等于拥有自己的账号。
